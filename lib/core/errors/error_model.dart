@@ -42,6 +42,20 @@ void handleExceptions(DioException e) {
             throw ServerException(errorModel: e.response!.data);
           case 401:
             throw ServerException(errorModel: e.response!.data);
+          case 402:
+            throw ServerException(errorModel: e.response!.data);
+          case 403:
+            throw ServerException(errorModel: e.response!.data);
+          case 404:
+            throw ServerException(errorModel: e.response!.data);
+          case 405:
+            throw ServerException(errorModel: e.response!.data);
+          case 500:
+            throw ServerException(errorModel: e.response!.data);
+          case 501:
+            throw ServerException(errorModel: e.response!.data);
+          case 502:
+            throw ServerException(errorModel: e.response!.data);
        }
     }
   }

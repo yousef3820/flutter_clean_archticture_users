@@ -7,7 +7,7 @@ final ValueChanged<double> onChanged;
   Widget build(BuildContext context) {
     return Slider(
       value: currentValue,
-      min: 1,
+      min: 0,
       max: 10,
       label: currentValue.toStringAsFixed(1),
       divisions: 9,
