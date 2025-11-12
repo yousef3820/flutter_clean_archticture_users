@@ -15,7 +15,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => GetUserCubit(),
-      child: MaterialApp(home: const UserScreen()),
+      child: MaterialApp(
+        home: const UserScreen(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
