@@ -1,14 +1,18 @@
 import 'package:flutter_clean_archticture_myself_2/core/apis/api_end_points.dart';
 import 'package:flutter_clean_archticture_myself_2/features/user/data/models/subModels/geo_model.dart';
-import 'package:flutter_clean_archticture_myself_2/features/user/domain/entities/subentities/address_entity.dart';
 
-class AdderssModel extends AddressEntity {
+class AdderssModel{
+  final String street;
+  final String suite;
+  final String city;
+  final String zipcode;
+  final GeoModel geo;
   AdderssModel({
-    required super.street,
-    required super.suite,
-    required super.city,
-    required super.zipcode,
-    required super.geo,
+    required this.street,
+    required this.suite,
+    required this.city,
+    required this.zipcode,
+    required this.geo,
   });
 
   factory AdderssModel.fromjson(Map<String, dynamic> json) {

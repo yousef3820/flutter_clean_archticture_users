@@ -5,17 +5,12 @@ class ErrorModel {
   final String status;
   final String errorMessage;
 
-  ErrorModel({
-    required this.status,
-    required this.errorMessage,
-  });
+  ErrorModel({required this.status, required this.errorMessage});
 
   factory ErrorModel.fromjson(Map<String, dynamic> json) {
     return ErrorModel(
-      status: json["status"]?.toString() ?? "Error",
-      errorMessage: json["errormessage"] ??
-          json["message"] ??
-          "Something went wrong",
+      status: json["status"].toString(),
+      errorMessage: json["errormessage"],
     );
   }
 }
@@ -53,16 +48,15 @@ String getMessageFromStatusCode(int? code) {
   }
 }
 
-/// ✅ الدالة المسؤولة عن معالجة كل أنواع الـ DioException
 void handleExceptions(DioException e) {
   final response = e.response;
 
-  // 1️⃣ لا يوجد أي Response (غالباً مشكلة إنترنت)
   if (response == null) {
     throw ServerException(
       errorModel: ErrorModel(
         status: 'No Response',
-        errorMessage: e.message ?? 'No internet connection or server not reachable.',
+        errorMessage:
+            e.message ?? 'No internet connection or server not reachable.',
       ),
     );
   }
@@ -80,7 +74,6 @@ void handleExceptions(DioException e) {
     );
   }
 
-  // 4️⃣ معالجة حسب نوع الخطأ (DioExceptionType)
   switch (e.type) {
     case DioExceptionType.connectionTimeout:
       throw ServerException(

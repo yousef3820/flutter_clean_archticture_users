@@ -8,7 +8,7 @@ final class GetUserInitial extends GetUserState {}
 final class GetUserLoading extends GetUserState {}
 
 final class GetUserSuccess extends GetUserState {
-  final UserEntity user;
+  final UserModel user;
 
   GetUserSuccess({required this.user});
 }

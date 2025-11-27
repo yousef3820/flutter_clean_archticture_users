@@ -1,8 +1,9 @@
 import 'package:flutter_clean_archticture_myself_2/core/apis/api_end_points.dart';
-import 'package:flutter_clean_archticture_myself_2/features/user/domain/entities/subentities/geo_entity.dart';
 
-class GeoModel extends GeoEntity {
-  GeoModel({required super.lat, required super.lng});
+class GeoModel{
+  final String lat;
+  final String lng;
+  GeoModel({required this.lat, required this.lng});
   factory GeoModel.fromjson(Map<String,dynamic>json)
   {
     return GeoModel(lat: json[ApiKeys.lat], lng:json[ApiKeys.lng]);

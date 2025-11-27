@@ -1,7 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_clean_archticture_myself_2/core/params/user_params.dart';
 import 'package:flutter_clean_archticture_myself_2/core/service_locator.dart';
-import 'package:flutter_clean_archticture_myself_2/features/user/domain/entities/user_entity.dart';
+import 'package:flutter_clean_archticture_myself_2/features/user/data/models/user_model.dart';
 import 'package:flutter_clean_archticture_myself_2/features/user/domain/usecases/get_user.dart';
 import 'package:meta/meta.dart';
 
@@ -14,7 +13,7 @@ class GetUserCubit extends Cubit<GetUserState> {
   eitherGetUserOrFailure(int id) async {
     emit(GetUserLoading());
     final userOrFailure = await getUserUseCase.call(
-      userParams: UserParams(id: id.toString()),
+     id: id,
     );
     userOrFailure.fold(
       (failure) => emit(GetUserFailure(errorMessage: failure.errorMessage)),

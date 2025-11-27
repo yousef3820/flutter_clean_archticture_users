@@ -1,21 +1,23 @@
 import 'package:flutter_clean_archticture_myself_2/core/apis/api_end_points.dart';
 import 'package:flutter_clean_archticture_myself_2/features/user/data/models/subModels/adderss_model.dart';
 import 'package:flutter_clean_archticture_myself_2/features/user/data/models/subModels/company_model.dart';
-import 'package:flutter_clean_archticture_myself_2/features/user/domain/entities/user_entity.dart';
-
-class UserModel extends UserEntity {
+class UserModel{
   final int id;
   final String username;
   final String website;
+  final String name;
+  final String phone;
+  final String email;
+  final AdderssModel address;
   final CompanyModel company;
   UserModel(
     this.id,
     this.username,
     this.website, {
-    required super.name,
-    required super.phone,
-    required super.email,
-    required super.address,
+    required this.name,
+    required this.phone,
+    required this.email,
+    required this.address,
     required this.company
   });
 
